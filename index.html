@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Portfolio</title>
+    <title>Srinithi | Portfolio</title>
 
     <style>
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background: #f0f4f8;
             color: #333;
+            line-height: 1.6;
             scroll-behavior: smooth;
         }
 
         /* Navigation */
+
         nav {
-            background-color: #222;
-            color: white;
-            padding: 20px 8%;
+            background: #1f3c88;
+            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
+            z-index: 1000;
         }
 
         nav h2 {
-            color: #00bcd4;
+            color: white;
         }
 
         nav ul {
-            list-style: none;
             display: flex;
+            list-style: none;
             gap: 25px;
         }
 
-        nav a {
+        nav ul li a {
             color: white;
             text-decoration: none;
+            font-weight: bold;
         }
 
-        nav a:hover {
-            color: #00bcd4;
+        nav ul li a:hover {
+            color: #ffd166;
         }
 
         /* Home */
+
         #home {
             min-height: 90vh;
             display: flex;
@@ -59,161 +65,372 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding: 30px;
         }
 
         #home h1 {
-            font-size: 45px;
+            font-size: 48px;
+            color: #1f3c88;
         }
 
-        #home span {
-            color: #00bcd4;
+        #home h1 span {
+            color: #d35400;
+        }
+
+        #home h3 {
+            margin: 15px 0;
+            font-size: 22px;
         }
 
         #home p {
-            margin: 20px;
             font-size: 18px;
+            margin-bottom: 25px;
         }
 
-        .btn {
-            background-color: #00bcd4;
-            color: white;
+        .button {
+            display: inline-block;
             padding: 12px 25px;
+            background: #1f3c88;
+            color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #d35400;
         }
 
         /* Common Section */
+
         section {
             padding: 70px 10%;
-            text-align: center;
         }
 
-        section h2 {
-            font-size: 30px;
-            margin-bottom: 25px;
-            color: #00a0b5;
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            color: #1f3c88;
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1f3c88;
+        }
+
+        p {
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 16px;
+            margin-bottom: 7px;
         }
 
         /* Skills */
+
         .skills {
             display: flex;
-            justify-content: center;
-            gap: 15px;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         .skill {
-            background-color: white;
-            padding: 20px 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px #aaa;
+            background: #eef3ff;
+            color: #1f3c88;
+            padding: 12px 20px;
+            border-radius: 20px;
+            font-weight: bold;
         }
 
         /* Projects */
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
         .project {
-            background-color: white;
-            max-width: 600px;
-            margin: 20px auto;
+            background: #eef3ff;
             padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px #aaa;
+            border-radius: 12px;
+            border-left: 5px solid #1f3c88;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 5px 15px #bbb;
         }
 
         .project h3 {
+            color: #1f3c88;
             margin-bottom: 10px;
         }
 
-        /* Contact */
-        #contact p {
-            margin: 10px;
+        .project p {
+            font-size: 15px;
         }
 
-        button {
-            margin-top: 15px;
-            padding: 12px 25px;
+        .view {
+            color: #d35400;
+            font-weight: bold;
+        }
+
+        /* Project Details */
+
+        #projectDetails {
+            display: none;
+        }
+
+        #projectDetails h2 {
+            text-align: center;
+        }
+
+        .project-info {
+            line-height: 1.8;
+        }
+
+        .back {
+            margin-top: 20px;
             border: none;
-            background-color: #00bcd4;
+            padding: 12px 25px;
+            background: #1f3c88;
             color: white;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
+            font-size: 15px;
         }
 
-        button:hover {
-            background-color: #008fa1;
+        .back:hover {
+            background: #d35400;
+        }
+
+        /* Quote */
+
+        .quote {
+            background: #eef3ff;
+            border-left: 5px solid #1f3c88;
+            padding: 18px;
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 17px;
+        }
+
+        /* Contact */
+
+        #contact p {
+            margin-bottom: 10px;
         }
 
         /* Footer */
+
         footer {
-            background-color: #222;
+            background: #1f3c88;
             color: white;
             text-align: center;
             padding: 20px;
         }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #home h1 {
+                font-size: 35px;
+            }
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 40px 5%;
+            }
+
+            .container {
+                padding: 22px;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
+
     <!-- Navigation -->
+
     <nav>
-        <h2>My Portfolio</h2>
+
+        <h2>Srinithi</h2>
 
         <ul>
+
             <li><a href="#home">Home</a></li>
+
             <li><a href="#about">About</a></li>
+
+            <li><a href="#education">Education</a></li>
+
             <li><a href="#skills">Skills</a></li>
+
             <li><a href="#projects">Projects</a></li>
+
             <li><a href="#contact">Contact</a></li>
+
         </ul>
+
     </nav>
 
 
     <!-- Home -->
+
     <section id="home">
 
-        <h1>Hello, I'm <span>Srinithi</span></h1>
+        <h1>
+            Hello, I'm <span>Srinithi</span>
+        </h1>
 
-        <h3>Computer Science Engineering Student</h3>
+        <h3>
+            Computer Science and Engineering Student
+        </h3>
 
         <p>
-            Welcome to my personal portfolio website.
+            Passionate about programming, technology,
+            software development and learning new things.
         </p>
 
-        <a href="#contact" class="btn">Contact Me</a>
+        <a href="#projects" class="button">
+            View My Projects
+        </a>
 
     </section>
 
 
     <!-- About -->
+
     <section id="about">
 
-        <h2>About Me</h2>
+        <div class="container">
 
-        <p>
-            I am a Computer Science Engineering student.
-            I am interested in programming, web development
-            and learning new technologies.
-        </p>
+            <h2>About Me</h2>
+
+            <p>
+                I am a Computer Science and Engineering student
+                at Government College of Technology, Coimbatore.
+                I have a strong interest in programming,
+                technology and software development.
+            </p>
+
+            <p>
+                I enjoy learning new technologies, solving
+                problems and developing practical projects.
+                I am continuously working on improving my
+                technical and problem-solving skills.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Education -->
+
+    <section id="education">
+
+        <div class="container">
+
+            <h2>Education</h2>
+
+            <ul>
+
+                <li>
+                    <strong>Degree:</strong>
+                    Bachelor of Engineering – Computer Science and Engineering
+                </li>
+
+                <li>
+                    <strong>College:</strong>
+                    Government College of Technology (GCT), Coimbatore
+                </li>
+
+                <li>
+                    <strong>Academic Year:</strong>
+                    2025 – 2029
+                </li>
+
+            </ul>
+
+        </div>
 
     </section>
 
 
     <!-- Skills -->
+
     <section id="skills">
 
-        <h2>My Skills</h2>
+        <div class="container">
 
-        <div class="skills">
+            <h2>Technical Skills</h2>
 
-            <div class="skill">HTML</div>
+            <div class="skills">
 
-            <div class="skill">CSS</div>
+                <div class="skill">C Programming</div>
 
-            <div class="skill">Java</div>
+                <div class="skill">Java</div>
 
-            <div class="skill">C Programming</div>
+                <div class="skill">Python</div>
 
-            <div class="skill">Python</div>
+                <div class="skill">Data Structures</div>
+
+                <div class="skill">HTML</div>
+
+                <div class="skill">CSS</div>
+
+                <div class="skill">JavaScript</div>
+
+                <div class="skill">VHDL</div>
+
+                <div class="skill">MIT App Inventor</div>
+
+                <div class="skill">
+                    Basic Database Concepts
+                </div>
+
+                <div class="skill">
+                    Software Development
+                </div>
+
+            </div>
 
         </div>
 
@@ -221,28 +438,248 @@
 
 
     <!-- Projects -->
+
     <section id="projects">
 
-        <h2>My Projects</h2>
+        <div class="container">
 
-        <div class="project">
+            <h2>My Projects</h2>
 
-            <h3>Expense Tracker</h3>
+            <div class="project-container">
+
+
+                <!-- Expense Tracker -->
+
+                <div class="project"
+                     onclick="openProject('expense')">
+
+                    <h3>💰 Expense Tracker</h3>
+
+                    <p>
+                        An application for recording
+                        and managing daily expenses.
+                    </p>
+
+                    <span class="view">
+                        Click to View →
+                    </span>
+
+                </div>
+
+
+                <!-- Bank Management -->
+
+                <div class="project"
+                     onclick="openProject('bank')">
+
+                    <h3>🏦 Bank Management System</h3>
+
+                    <p>
+                        A mini project for managing
+                        basic banking operations.
+                    </p>
+
+                    <span class="view">
+                        Click to View →
+                    </span>
+
+                </div>
+
+
+                <!-- Voice Translator -->
+
+                <div class="project"
+                     onclick="openProject('voice')">
+
+                    <h3>🎙️ Voice Translator App</h3>
+
+                    <p>
+                        A voice-based application
+                        for language translation.
+                    </p>
+
+                    <span class="view">
+                        Click to View →
+                    </span>
+
+                </div>
+
+
+                <!-- Portfolio -->
+
+                <div class="project"
+                     onclick="openProject('portfolio')">
+
+                    <h3>💻 Personal Portfolio</h3>
+
+                    <p>
+                        A personal portfolio website
+                        created using HTML, CSS and JavaScript.
+                    </p>
+
+                    <span class="view">
+                        Click to View →
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Project Details -->
+
+    <section id="projectDetails">
+
+        <div class="container">
+
+            <h2 id="projectTitle"></h2>
+
+            <div id="projectContent"
+                 class="project-info">
+            </div>
+
+            <button class="back"
+                    onclick="closeProject()">
+                ← Back to Projects
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Interests -->
+
+    <section id="interests">
+
+        <div class="container">
+
+            <h2>Interests</h2>
+
+            <ul>
+
+                <li>Software Development</li>
+
+                <li>Web Development</li>
+
+                <li>Learning New Technologies</li>
+
+                <li>Problem Solving</li>
+
+                <li>Drawing</li>
+
+                <li>Bharatanatyam / Dancing</li>
+
+                <li>Gardening and Nature</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Goals -->
+
+    <section id="goals">
+
+        <div class="container">
+
+            <h2>My Goals</h2>
 
             <p>
-                A simple application used to add and
-                manage daily expenses.
+                My short-term goal is to develop strong
+                technical skills, maintain good academic
+                performance and gain a good placement
+                opportunity.
+            </p>
+
+            <p>
+                My long-term goal is to build a successful
+                career in the software industry, support
+                my family and continuously improve my
+                knowledge and skills.
             </p>
 
         </div>
 
-        <div class="project">
+    </section>
 
-            <h3>Student Portfolio</h3>
 
-            <p>
-                A personal website created using HTML and CSS.
-            </p>
+    <!-- Currently Learning -->
+
+    <section id="learning">
+
+        <div class="container">
+
+            <h2>Currently Learning</h2>
+
+            <ul>
+
+                <li>Data Structures and Algorithms</li>
+
+                <li>Object-Oriented Programming</li>
+
+                <li>Web Development</li>
+
+                <li>Digital Logic and VHDL</li>
+
+                <li>Software and Operating Systems</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Strengths -->
+
+    <section id="strengths">
+
+        <div class="container">
+
+            <h2>My Strengths</h2>
+
+            <ul>
+
+                <li>Hardworking</li>
+
+                <li>Disciplined</li>
+
+                <li>Responsible</li>
+
+                <li>Willing to learn new things</li>
+
+                <li>Interested in improving technical skills</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Languages -->
+
+    <section id="languages">
+
+        <div class="container">
+
+            <h2>Languages</h2>
+
+            <ul>
+
+                <li>Tamil</li>
+
+                <li>English</li>
+
+            </ul>
 
         </div>
 
@@ -250,41 +687,244 @@
 
 
     <!-- Contact -->
+
     <section id="contact">
 
-        <h2>Contact Me</h2>
+        <div class="container">
 
-        <p>Email: yourmail@gmail.com</p>
+            <h2>Contact Me</h2>
 
-        <p>Phone: 9876543210</p>
+            <p>
+                📧 Email:
+                yourmail@gmail.com
+            </p>
 
-        <button onclick="showMessage()">
-            Send Message
-        </button>
+            <p>
+                📱 Phone:
+                9876543210
+            </p>
+
+            <p>
+                📍 Coimbatore, Tamil Nadu
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Quote -->
+
+    <section>
+
+        <div class="container">
+
+            <h2>My Inspiration</h2>
+
+            <div class="quote">
+
+                "Dream, dream, dream.
+                Dreams transform into thoughts
+                and thoughts result in action."
+
+                <br><br>
+
+                — Dr. A. P. J. Abdul Kalam
+
+            </div>
+
+        </div>
 
     </section>
 
 
     <!-- Footer -->
+
     <footer>
 
         <p>
-            © 2026 My Portfolio | All Rights Reserved
+            © 2026 Srinithi | Personal Portfolio
         </p>
 
     </footer>
 
 
     <!-- JavaScript -->
+
     <script>
 
-        function showMessage() {
+        function openProject(project) {
 
-            alert("Thank you for contacting me!");
+            let title =
+                document.getElementById("projectTitle");
+
+            let content =
+                document.getElementById("projectContent");
+
+            let details =
+                document.getElementById("projectDetails");
+
+
+            if (project === "expense") {
+
+                title.innerHTML =
+                    "💰 Expense Tracker";
+
+                content.innerHTML = `
+
+                    <h3>Project Description</h3>
+
+                    <p>
+                        Expense Tracker is an application
+                        developed to record and manage
+                        daily expenses.
+                    </p>
+
+                    <h3>Features</h3>
+
+                    <ul>
+                        <li>Add expenses</li>
+                        <li>Enter expense description</li>
+                        <li>Select expense category</li>
+                        <li>Calculate total expenses</li>
+                        <li>Delete expenses</li>
+                    </ul>
+
+                    <h3>Technology Used</h3>
+
+                    <p>
+                        MIT App Inventor
+                    </p>
+
+                `;
+
+            }
+
+
+            else if (project === "bank") {
+
+                title.innerHTML =
+                    "🏦 Bank Management System";
+
+                content.innerHTML = `
+
+                    <h3>Project Description</h3>
+
+                    <p>
+                        Bank Management System is a
+                        mini project developed to manage
+                        basic banking operations.
+                    </p>
+
+                    <h3>Features</h3>
+
+                    <ul>
+                        <li>Create Bank Account</li>
+                        <li>Deposit Money</li>
+                        <li>Withdraw Money</li>
+                        <li>Check Account Balance</li>
+                        <li>View Account Details</li>
+                    </ul>
+
+                    <h3>Technology Used</h3>
+
+                    <p>
+                        C Programming
+                    </p>
+
+                `;
+
+            }
+
+
+            else if (project === "voice") {
+
+                title.innerHTML =
+                    "🎙️ Voice Translator App";
+
+                content.innerHTML = `
+
+                    <h3>Project Description</h3>
+
+                    <p>
+                        Voice Translator App is an application
+                        that uses voice input to translate
+                        spoken content into another language.
+                    </p>
+
+                    <h3>Features</h3>
+
+                    <ul>
+                        <li>Voice Input</li>
+                        <li>Speech Recognition</li>
+                        <li>Language Translation</li>
+                        <li>Easy Voice Interaction</li>
+                    </ul>
+
+                    <h3>Technology Used</h3>
+
+                    <p>
+                        Python / Speech Recognition /
+                        Translation Technology
+                    </p>
+
+                `;
+
+            }
+
+
+            else if (project === "portfolio") {
+
+                title.innerHTML =
+                    "💻 Personal Portfolio";
+
+                content.innerHTML = `
+
+                    <h3>Project Description</h3>
+
+                    <p>
+                        This personal portfolio website
+                        is designed to showcase my
+                        education, technical skills,
+                        interests and projects.
+                    </p>
+
+                    <h3>Technologies Used</h3>
+
+                    <p>
+                        HTML, CSS and JavaScript
+                    </p>
+
+                `;
+
+            }
+
+
+            details.style.display = "block";
+
+            details.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+        function closeProject() {
+
+            document.getElementById(
+                "projectDetails"
+            ).style.display = "none";
+
+            document.getElementById(
+                "projects"
+            ).scrollIntoView({
+                behavior: "smooth"
+            });
 
         }
 
     </script>
 
 </body>
+
 </html>
